@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Selecciona tu previsión</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: white;
+      font-family: 'Segoe UI', sans-serif;
+      color: #48b4a6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .contenedor-horizontal {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .contenido-derecho {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      color: #48b4a6;
+    }
+
+    .contenido-derecho h1 {
+      font-size: 78px;
+      margin: 0;
+    }
+
+    .hora, #fecha-actual {
+      font-size: 40px;
+      margin: 0;
+    }
+
+    .botones-prevision {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn-prevision {
+      padding: 38px 70px;
+      font-size: 42px;
+      background-color: #028080;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-prevision:hover {
+      background-color: #016666;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+    .gif-decorativo {
+      width: 900px;
+      margin-top: 150px;
+    }
+
+    @media (max-width: 768px) {
+      .contenedor-horizontal {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        width: 140px;
+      }
+
+      .gif-decorativo {
+        width: 60px;
+      }
+
+      .btn-prevision {
+        width: 100%;
+        font-size: 28px;
+        padding: 24px;
+      }
+
+      .contenido-derecho h1 {
+        font-size: 38px;
+      }
+
+      .hora, #fecha-actual {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor-horizontal">
+  <div>
+    <img src="gif.gif" alt="GIF decorativo" class="gif-decorativo">
+  </div>
+
+  <div class="contenido-derecho">
+    <h1>Selecciona tu previsión</h1>
+    <div class="hora" id="hora-actual">Hora actual: --:--</div>
+    <div id="fecha-actual">Fecha: --</div>
+
+    <div class="botones-prevision">
+      <a href="1.php?prevision=ISAPRE" class="btn-prevision">ISAPRE</a>
+      <a href="1.php?prevision=FONASA" class="btn-prevision">FONASA</a>
+      <a href="1.php?prevision=PARTICULAR" class="btn-prevision">PARTICULAR</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function actualizarHoraYFecha() {
+    const ahora = new Date();
+    const horas = String(ahora.getHours()).padStart(2, '0');
+    const minutos = String(ahora.getMinutes()).padStart(2, '0');
+    const segundos = String(ahora.getSeconds()).padStart(2, '0');
+
+    const opcionesFecha = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'America/Santiago'
+    };
+	const fechaChile = ahora.toLocaleDateString('es-CL', opcionesFecha);
+
+    document.getElementById('hora-actual').textContent = `Hora actual: ${horas}:${minutos}:${segundos}⏰`;
+    document.getElementById('fecha-actual').textContent = `Fecha: ${fechaChile.charAt(0).toUpperCase() + fechaChile.slice(1)}📅`;
+  }
+  setInterval(actualizarHoraYFecha, 1000);
+  actualizarHoraYFecha();
+</script>
+
+</body>
+</html>

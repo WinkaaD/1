@@ -1,0 +1,8 @@
+.logo {
+	position: fixed;
+	top: 10px;
+	right: calc(10px+7cm);
+	width: 100px;
+	height: auto;
+	
+}

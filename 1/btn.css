@@ -1,0 +1,14 @@
+<?php include("conexion.php"); ?>
+}
+.btn.btn-outline-isapre {
+  font-size: 24px;
+  padding: 15px 30px; 
+}
+.btn.btn-outline-fonasa {
+  font-size: 24px;
+  padding: 15px 30px; 
+}
+.btn.btn-outline-particular {
+  font-size: 24px;
+  padding: 15px 30px; 
+}
