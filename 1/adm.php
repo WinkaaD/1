@@ -11,7 +11,7 @@ $mensaje = "";
 $procedimientos = [];
 $categorias = [];
 
-// Obtener todas las categorías únicas desde la base
+// Obtener todas las categorías únicas desde la base xxxxx
 $catResult = $conexion->query("SELECT DISTINCT CATEGORIA FROM precios WHERE CATEGORIA IS NOT NULL AND CATEGORIA != ''");
 while ($cat = $catResult->fetch_assoc()) {
     $categorias[] = $cat['CATEGORIA'];
