@@ -5,7 +5,7 @@ $prevision = $_GET['prevision'] ?? 'ISAPRE';
 $mensaje = "";
 $resultadoBusqueda = [];
 
-// Obtener categorías  rielksadqw askddwkleklqwkl
+// Obtener categorías
 $sql = "SELECT DISTINCT CATEGORIA FROM precios ORDER BY CATEGORIA ASC";
 $res = $conexion->query($sql);
 $categorias = [];
