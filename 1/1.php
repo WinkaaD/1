@@ -15,7 +15,7 @@ if ($res && $res->num_rows > 0) {
   }
 }
 
-// Buscar por código
+// Buscar por códigoalvvv crtm otra vezzzzzz
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['buscar_codigo'])) {
   $codigo = trim($_POST['codigo']);
   if (!empty($codigo)) {
